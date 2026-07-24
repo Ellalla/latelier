@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'atelier Studio — High-Fashion & Bridal Couture Makeup</title>
-  <meta name="description" content="L'atelier Studio 由三位不同擅长领域的独立化妆师联合创立，专注于高端定制妆造与骨相美学，以克制与精确，还原原生之美。">
-  
+  <title>L'atelier — High-Fashion & Bridal Couture Makeup</title>
+  <meta name="description" content="L'atelier 由三位不同擅长领域的独立化妆师联合创立，专注于高端定制妆造与骨相美学，以克制与精确，还原原生之美。">
+
   <!-- Google Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -49,17 +52,20 @@
       background-color: #3A5343;
       color: #FFFFFF;
     }
-    
+
     /* Fine subtle scrollbar */
     ::-webkit-scrollbar {
       width: 5px;
     }
+
     ::-webkit-scrollbar-track {
       background: #FAFAFA;
     }
+
     ::-webkit-scrollbar-thumb {
       background: #D1D5DB;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background: #3A5343;
     }
@@ -67,10 +73,11 @@
     .editorial-border {
       border: 1px solid rgba(17, 17, 17, 0.08);
     }
-    
+
     .hover-lift {
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .hover-lift:hover {
       transform: translateY(-4px);
     }
@@ -78,9 +85,11 @@
     .img-zoom-container {
       overflow: hidden;
     }
+
     .img-zoom-container img {
       transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .img-zoom-container:hover img {
       transform: scale(1.04);
     }
@@ -89,6 +98,7 @@
     .link-underline {
       position: relative;
     }
+
     .link-underline::after {
       content: '';
       position: absolute;
@@ -99,26 +109,31 @@
       background-color: #3A5343;
       transition: width 0.3s ease;
     }
+
     .link-underline:hover::after {
       width: 100%;
     }
   </style>
 </head>
+
 <body class="bg-[#FFFFFF] text-charcoal font-sans antialiased selection:bg-sage selection:text-white leading-relaxed">
 
   <!-- ==================== HEADER NAVIGATION ==================== -->
-  <header id="site-header" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-subtleBorder">
+  <header id="site-header"
+    class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-subtleBorder">
     <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-      
+
       <!-- Studio Logo -->
       <a href="#home" class="group flex items-center gap-2">
-        <span class="font-serif text-2xl md:text-3xl font-light tracking-wide text-charcoal group-hover:text-sage transition-colors duration-300">
-          L'atelier <span class="italic font-normal text-sage">Studio</span>
+        <span
+          class="font-serif text-2xl md:text-3xl font-light tracking-wide text-charcoal group-hover:text-sage transition-colors duration-300">
+          L'atelier <span class="italic font-normal text-sage"></span>
         </span>
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center space-x-10 text-xs tracking-widest uppercase font-medium text-charcoal/80">
+      <nav
+        class="hidden md:flex items-center space-x-10 text-xs tracking-widest uppercase font-medium text-charcoal/80">
         <a href="#home" class="link-underline hover:text-charcoal transition-colors">Home</a>
         <a href="#philosophy" class="link-underline hover:text-charcoal transition-colors">Philosophy</a>
         <a href="#artists" class="link-underline hover:text-charcoal transition-colors">Artists</a>
@@ -127,13 +142,15 @@
 
       <!-- Right Action Button (Desktop) -->
       <div class="hidden md:flex items-center gap-6">
-        <button onclick="openBookingModal()" class="px-6 py-2.5 text-xs tracking-widest uppercase font-medium border border-sage text-sage hover:bg-sage hover:text-white transition-all duration-300 rounded-none">
+        <button onclick="openBookingModal()"
+          class="px-6 py-2.5 text-xs tracking-widest uppercase font-medium border border-sage text-sage hover:bg-sage hover:text-white transition-all duration-300 rounded-none">
           Book Now
         </button>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="menu-toggle" aria-label="Toggle Menu" class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50">
+      <button id="menu-toggle" aria-label="Toggle Menu"
+        class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50">
         <span class="w-6 h-0.5 bg-charcoal transition-all duration-300 transform" id="line1"></span>
         <span class="w-6 h-0.5 bg-charcoal transition-all duration-300" id="line2"></span>
         <span class="w-6 h-0.5 bg-charcoal transition-all duration-300 transform" id="line3"></span>
@@ -143,19 +160,25 @@
   </header>
 
   <!-- Mobile Fullscreen Menu -->
-  <div id="mobile-menu" class="fixed inset-0 bg-white z-30 flex flex-col justify-between px-8 py-24 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+  <div id="mobile-menu"
+    class="fixed inset-0 bg-white z-30 flex flex-col justify-between px-8 py-24 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
     <div class="flex flex-col space-y-8 text-center pt-8">
-      <a href="#home" onclick="closeMobileMenu()" class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Home</a>
-      <a href="#philosophy" onclick="closeMobileMenu()" class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Philosophy</a>
-      <a href="#artists" onclick="closeMobileMenu()" class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Artists</a>
-      <a href="#services" onclick="closeMobileMenu()" class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Services</a>
+      <a href="#home" onclick="closeMobileMenu()"
+        class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Home</a>
+      <a href="#philosophy" onclick="closeMobileMenu()"
+        class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Philosophy</a>
+      <a href="#artists" onclick="closeMobileMenu()"
+        class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Artists</a>
+      <a href="#services" onclick="closeMobileMenu()"
+        class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Services</a>
     </div>
 
     <div class="flex flex-col items-center space-y-6 pt-6 border-t border-subtleBorder">
-      <button onclick="closeMobileMenu(); openBookingModal();" class="w-full py-4 text-xs tracking-widest uppercase font-medium bg-sage text-white text-center">
+      <button onclick="closeMobileMenu(); openBookingModal();"
+        class="w-full py-4 text-xs tracking-widest uppercase font-medium bg-sage text-white text-center">
         Book Appointment
       </button>
-      <p class="text-xs text-charcoal/50 tracking-wider">SHANGHAI · BY APPOINTMENT ONLY</p>
+      <p class="text-xs text-charcoal/50 tracking-wider">TORONTO · BY APPOINTMENT ONLY</p>
     </div>
   </div>
 
@@ -163,25 +186,31 @@
   <main class="pt-20">
 
     <!-- ==================== HERO SECTION ==================== -->
-    <section id="home" class="relative min-h-[calc(100vh-5rem)] flex items-center py-16 md:py-24 bg-white overflow-hidden">
-      
+    <section id="home"
+      class="relative min-h-[calc(100vh-5rem)] flex items-center py-16 md:py-24 bg-white overflow-hidden">
+
       <!-- Delicate Background Accent Line -->
-      <div class="absolute left-1/2 top-0 bottom-0 w-px bg-subtleBorder hidden lg:block -translate-x-1/2 pointer-events-none"></div>
+      <div
+        class="absolute left-1/2 top-0 bottom-0 w-px bg-subtleBorder hidden lg:block -translate-x-1/2 pointer-events-none">
+      </div>
 
       <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           <!-- Hero Text Column (Left) -->
           <div class="lg:col-span-6 flex flex-col items-start pr-0 lg:pr-6">
-            
+
             <!-- Sage Green Tag -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 bg-sage-soft border border-sage/20 rounded-full">
+            <div
+              class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 bg-sage-soft border border-sage/20 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
-              <span class="text-[11px] tracking-widest uppercase font-medium text-sage">High-Fashion &amp; Bridal Couture</span>
+              <span class="text-[11px] tracking-widest uppercase font-medium text-sage">High-Fashion &amp; Bridal
+                Couture</span>
             </div>
 
             <!-- Editorial Headline -->
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light text-charcoal leading-[1.12] tracking-tight mb-8">
+            <h1
+              class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light text-charcoal leading-[1.12] tracking-tight mb-8">
               Enhancing your raw beauty with <span class="italic font-normal text-sage">subtle precision.</span>
             </h1>
 
@@ -197,10 +226,12 @@
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-              <button onclick="openBookingModal()" class="px-8 py-4 bg-sage text-white text-xs tracking-widest uppercase font-medium hover:bg-sage-dark transition-all duration-300 text-center shadow-sm">
+              <button onclick="openBookingModal()"
+                class="px-8 py-4 bg-sage text-white text-xs tracking-widest uppercase font-medium hover:bg-sage-dark transition-all duration-300 text-center shadow-sm">
                 Book Appointment
               </button>
-              <a href="#artists" class="px-8 py-4 border border-charcoal/20 text-charcoal text-xs tracking-widest uppercase font-medium hover:border-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 text-center">
+              <a href="#artists"
+                class="px-8 py-4 border border-charcoal/20 text-charcoal text-xs tracking-widest uppercase font-medium hover:border-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 text-center">
                 Meet Our Artists
               </a>
             </div>
@@ -226,26 +257,34 @@
           <!-- Hero Image Column (Right) -->
           <div class="lg:col-span-6 relative">
             <div class="relative max-w-lg mx-auto lg:max-w-none">
-              
+
               <!-- Subtle Background Matte Overlay Frame -->
-              <div class="absolute -inset-4 bg-offwhite border border-subtleBorder -z-10 transform translate-x-2 translate-y-2 hidden sm:block"></div>
+              <div
+                class="absolute -inset-4 bg-offwhite border border-subtleBorder -z-10 transform translate-x-2 translate-y-2 hidden sm:block">
+              </div>
 
               <!-- Main Hero Photography -->
               <div class="img-zoom-container relative aspect-[4/5] bg-gray-100 border border-subtleBorder shadow-sm">
-                <img src="assets/hero.jpg" alt="High Fashion Editorial Beauty Portrait" class="w-full h-full object-cover">
-                
+                <img src="assets/hero.jpg" alt="High Fashion Editorial Beauty Portrait"
+                  class="w-full h-full object-cover">
+
                 <!-- Editorial Image Caption Overlay -->
-                <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 border border-subtleBorder flex justify-between items-center">
+                <div
+                  class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 border border-subtleBorder flex justify-between items-center">
                   <div>
-                    <span class="block text-[10px] tracking-widest uppercase font-medium text-sage">Editorial No. 01</span>
+                    <span class="block text-[10px] tracking-widest uppercase font-medium text-sage">Editorial No.
+                      01</span>
                     <span class="font-serif text-sm italic text-charcoal">The Essence of Raw Texture</span>
                   </div>
-                  <span class="text-[9px] tracking-widest uppercase text-charcoal/40 border-l border-subtleBorder pl-3">2026 Collection</span>
+                  <span
+                    class="text-[9px] tracking-widest uppercase text-charcoal/40 border-l border-subtleBorder pl-3">2026
+                    Collection</span>
                 </div>
               </div>
 
               <!-- Top Decorative Badge -->
-              <div class="absolute -top-6 -right-6 w-24 h-24 bg-sage text-white rounded-full flex flex-col items-center justify-center text-center p-2 hidden sm:flex shadow-lg">
+              <div
+                class="absolute -top-6 -right-6 w-24 h-24 bg-sage text-white rounded-full flex flex-col items-center justify-center text-center p-2 hidden sm:flex shadow-lg">
                 <span class="font-serif text-xs italic">Couture</span>
                 <span class="text-[8px] tracking-widest uppercase font-medium">Beauty</span>
               </div>
@@ -260,7 +299,7 @@
     <!-- ==================== PHILOSOPHY SECTION ==================== -->
     <section id="philosophy" class="py-24 bg-offwhite border-y border-subtleBorder">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
-        
+
         <!-- Section Header -->
         <div class="max-w-3xl mx-auto text-center mb-16 md:mb-24">
           <span class="text-xs tracking-widest uppercase font-medium text-sage mb-3 block">Brand Ethos</span>
@@ -275,7 +314,7 @@
 
         <!-- 3 Minimalist Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-          
+
           <!-- Card 1: Raw Texture -->
           <div class="bg-white border border-subtleBorder p-8 hover-lift flex flex-col justify-between group">
             <div>
@@ -291,7 +330,8 @@
                 摒弃假面感厚重粉底，通过精细的妆前调理与透光打底层次，呈现如同晨露般的自然通透肤质。
               </p>
             </div>
-            <div class="mt-8 pt-4 border-t border-subtleBorder flex justify-between items-center text-[10px] tracking-widest uppercase text-charcoal/40 group-hover:text-sage transition-colors">
+            <div
+              class="mt-8 pt-4 border-t border-subtleBorder flex justify-between items-center text-[10px] tracking-widest uppercase text-charcoal/40 group-hover:text-sage transition-colors">
               <span>Luminous Skin</span>
               <span>&rarr;</span>
             </div>
@@ -301,7 +341,8 @@
           <div class="bg-white border border-subtleBorder p-8 hover-lift flex flex-col justify-between group">
             <div>
               <div class="img-zoom-container aspect-[4/3] bg-gray-100 mb-8 overflow-hidden border border-subtleBorder">
-                <img src="assets/facial-structure.jpg" alt="Bespoke Facial Structure" class="w-full h-full object-cover">
+                <img src="assets/facial-structure.jpg" alt="Bespoke Facial Structure"
+                  class="w-full h-full object-cover">
               </div>
               <div class="flex items-center gap-3 mb-4">
                 <span class="font-serif text-lg text-sage italic">02</span>
@@ -312,7 +353,8 @@
                 基于个人三庭五眼与独特骨骼走势，以微光影与精准轮廓重塑自然天生的高级立体面部线条。
               </p>
             </div>
-            <div class="mt-8 pt-4 border-t border-subtleBorder flex justify-between items-center text-[10px] tracking-widest uppercase text-charcoal/40 group-hover:text-sage transition-colors">
+            <div
+              class="mt-8 pt-4 border-t border-subtleBorder flex justify-between items-center text-[10px] tracking-widest uppercase text-charcoal/40 group-hover:text-sage transition-colors">
               <span>Bone Contour</span>
               <span>&rarr;</span>
             </div>
@@ -333,7 +375,8 @@
                 拒绝快餐式流行网感妆容，秉持沉稳耐看的高级画报质感，记录每一个重要时刻的经典神韵。
               </p>
             </div>
-            <div class="mt-8 pt-4 border-t border-subtleBorder flex justify-between items-center text-[10px] tracking-widest uppercase text-charcoal/40 group-hover:text-sage transition-colors">
+            <div
+              class="mt-8 pt-4 border-t border-subtleBorder flex justify-between items-center text-[10px] tracking-widest uppercase text-charcoal/40 group-hover:text-sage transition-colors">
               <span>Enduring Charm</span>
               <span>&rarr;</span>
             </div>
@@ -361,9 +404,11 @@
           <!-- Artist 1 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container">
-              <img src="assets/hero.jpg" alt="Elena Vance" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+              <img src="assets/hero.jpg" alt="Elena Vance"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">High Couture Lead</span>
+            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">High Couture
+              Lead</span>
             <h3 class="font-serif text-2xl text-charcoal group-hover:text-sage transition-colors">Elena Vance</h3>
             <p class="text-xs text-charcoal/60 font-light mt-2">擅长时装周大片妆造与光影聚光灯特写</p>
           </div>
@@ -371,9 +416,11 @@
           <!-- Artist 2 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container">
-              <img src="assets/timeless-aesthetic.jpg" alt="Mia Chen" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+              <img src="assets/timeless-aesthetic.jpg" alt="Mia Chen"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bridal &amp; Red Carpet</span>
+            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bridal &amp; Red
+              Carpet</span>
             <h3 class="font-serif text-2xl text-charcoal group-hover:text-sage transition-colors">Mia Chen</h3>
             <p class="text-xs text-charcoal/60 font-light mt-2">专注高端私订新娘妆造与红毯仪式气场</p>
           </div>
@@ -381,9 +428,11 @@
           <!-- Artist 3 -->
           <div class="group cursor-pointer">
             <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container">
-              <img src="assets/facial-structure.jpg" alt="Sora Kim" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+              <img src="assets/facial-structure.jpg" alt="Sora Kim"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bone Structure Specialist</span>
+            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bone Structure
+              Specialist</span>
             <h3 class="font-serif text-2xl text-charcoal group-hover:text-sage transition-colors">Sora Kim</h3>
             <p class="text-xs text-charcoal/60 font-light mt-2">精于微骨相雕刻与极简清透自然妆面</p>
           </div>
@@ -400,53 +449,62 @@
         </div>
 
         <div class="divide-y divide-subtleBorder border-y border-subtleBorder">
-          
+
           <!-- Service 1 -->
-          <div class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
+          <div
+            class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
             <div class="md:w-1/3 mb-2 md:mb-0">
               <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Category 01</span>
-              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Bridal Couture Package / 高定新娘妆造</h3>
+              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Bridal Couture
+                Package / 高定新娘妆造</h3>
             </div>
             <p class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
               包含试妆沟通、婚礼当日全程跟妆、皮肤预理及定制饰品搭配。
             </p>
             <div class="flex items-center justify-between md:justify-end md:w-1/4 gap-6">
               <span class="font-serif text-lg text-charcoal">From ¥4,800</span>
-              <button onclick="openBookingModal()" class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
+              <button onclick="openBookingModal()"
+                class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
                 Select
               </button>
             </div>
           </div>
 
           <!-- Service 2 -->
-          <div class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
+          <div
+            class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
             <div class="md:w-1/3 mb-2 md:mb-0">
               <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Category 02</span>
-              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Editorial &amp; Runway Look / 时装画报大片</h3>
+              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Editorial &amp;
+                Runway Look / 时装画报大片</h3>
             </div>
             <p class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
               专为杂志封面、商业广告、个人形象大片量身研发的高概念妆造。
             </p>
             <div class="flex items-center justify-between md:justify-end md:w-1/4 gap-6">
               <span class="font-serif text-lg text-charcoal">From ¥2,800</span>
-              <button onclick="openBookingModal()" class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
+              <button onclick="openBookingModal()"
+                class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
                 Select
               </button>
             </div>
           </div>
 
           <!-- Service 3 -->
-          <div class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
+          <div
+            class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
             <div class="md:w-1/3 mb-2 md:mb-0">
               <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Category 03</span>
-              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Personal Bone Structure Design / 私人骨相美学服务</h3>
+              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Personal Bone
+                Structure Design / 私人骨相美学服务</h3>
             </div>
             <p class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
               精准分析个人面部骨骼比例，打造日常高端场合轻奢妆容。
             </p>
             <div class="flex items-center justify-between md:justify-end md:w-1/4 gap-6">
               <span class="font-serif text-lg text-charcoal">From ¥1,600</span>
-              <button onclick="openBookingModal()" class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
+              <button onclick="openBookingModal()"
+                class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
                 Select
               </button>
             </div>
@@ -462,22 +520,22 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="bg-white border-t border-subtleBorder pt-20 pb-12">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
-      
+
       <!-- Upper Footer Grid -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-subtleBorder">
-        
+
         <!-- Left Col: Logo & Ethos -->
         <div class="md:col-span-5 flex flex-col justify-between">
           <div>
             <a href="#home" class="font-serif text-3xl font-light tracking-wide text-charcoal block mb-4">
-              L'atelier <span class="italic font-normal text-sage">Studio</span>
+              L'atelier <span class="italic font-normal text-sage"></span>
             </a>
             <p class="text-xs text-charcoal/60 max-w-sm font-light leading-relaxed mb-6">
               Enhancing your raw beauty with subtle precision. 由三位独立化妆师联合创立的高端定制妆造工作室。
             </p>
           </div>
           <div class="text-[11px] tracking-widest uppercase text-sage font-medium">
-            Shanghai · By Appointment Only
+            Toronto · By Appointment Only
           </div>
         </div>
 
@@ -486,8 +544,7 @@
           <div>
             <h4 class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Studio Location</h4>
             <p class="text-xs text-charcoal/70 font-light leading-relaxed">
-              静安区南京西路128号 尚品公馆 808室<br>
-              Suite 808, Atelier Mansion, West Nanjing Road, Shanghai
+              123 Yonge Street, Toronto, ON M5B 1E5
             </p>
           </div>
           <div>
@@ -504,9 +561,12 @@
           <div>
             <h4 class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Connect With Us</h4>
             <ul class="space-y-2 text-xs text-charcoal/70 font-light">
-              <li><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-sage transition-colors">Instagram @latelier_studio</a></li>
-              <li><a href="https://xiaohongshu.com" target="_blank" rel="noopener" class="hover:text-sage transition-colors">小红书: L'atelier 化妆工作室</a></li>
-              <li><a href="mailto:contact@latelier-studio.com" class="hover:text-sage transition-colors">contact@latelier-studio.com</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener"
+                  class="hover:text-sage transition-colors">Instagram @latelier</a></li>
+              <li><a href="https://xiaohongshu.com" target="_blank" rel="noopener"
+                  class="hover:text-sage transition-colors">小红书: L'atelier 化妆工作室</a></li>
+              <li><a href="mailto:contact@latelier.com"
+                  class="hover:text-sage transition-colors">contact@latelier-studio.com</a></li>
             </ul>
           </div>
         </div>
@@ -514,8 +574,9 @@
       </div>
 
       <!-- Lower Footer Copyright -->
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] tracking-wider text-charcoal/40 font-light">
-        <p>&copy; 2026 L'atelier Studio. All Rights Reserved.</p>
+      <div
+        class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] tracking-wider text-charcoal/40 font-light">
+        <p>&copy; 2026 L'atelier. All Rights Reserved.</p>
         <div class="flex space-x-6 mt-4 sm:mt-0">
           <a href="#" class="hover:text-charcoal transition-colors">Privacy Policy</a>
           <a href="#" class="hover:text-charcoal transition-colors">Terms of Service</a>
@@ -526,12 +587,15 @@
   </footer>
 
   <!-- ==================== BOOKING MODAL DRAWER ==================== -->
-  <div id="booking-modal" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
+  <div id="booking-modal"
+    class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300 pointer-events-none">
     <!-- Overlay backdrop -->
     <div onclick="closeBookingModal()" class="absolute inset-0 bg-charcoal/40 backdrop-blur-sm"></div>
 
     <!-- Modal Content Window -->
-    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white p-8 md:p-12 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-out overflow-y-auto" id="booking-drawer">
+    <div
+      class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white p-8 md:p-12 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-500 ease-out overflow-y-auto"
+      id="booking-drawer">
       <div>
         <div class="flex justify-between items-center mb-8 border-b border-subtleBorder pb-4">
           <div>
@@ -545,8 +609,10 @@
 
         <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-6">
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Select Preferred Artist</label>
-            <select class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
+            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Select Preferred
+              Artist</label>
+            <select
+              class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
               <option>Elena Vance — High Couture Lead</option>
               <option>Mia Chen — Bridal &amp; Red Carpet</option>
               <option>Sora Kim — Bone Structure Specialist</option>
@@ -555,8 +621,10 @@
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Service Type</label>
-            <select class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
+            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Service
+              Type</label>
+            <select
+              class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
               <option>Bridal Couture Package (高定新娘妆造)</option>
               <option>Editorial &amp; Runway Look (时装画报大片)</option>
               <option>Personal Bone Structure Design (私人骨相美学服务)</option>
@@ -564,26 +632,35 @@
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Your Name / 姓名</label>
-            <input type="text" required placeholder="e.g. Ms. Lin" class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
+            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Your Name /
+              姓名</label>
+            <input type="text" required placeholder="e.g. Ms. Lin"
+              class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Phone / Contact Phone</label>
-            <input type="tel" required placeholder="+86 138 **** ****" class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
+            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Phone / Contact
+              Phone</label>
+            <input type="tel" required placeholder="+86 138 **** ****"
+              class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Preferred Date</label>
-            <input type="date" required class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
+            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Preferred
+              Date</label>
+            <input type="date" required
+              class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Special Notes / 备注需求</label>
-            <textarea rows="3" placeholder="如有特定服装或造型需求请在此注明..." class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage resize-none"></textarea>
+            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Special Notes /
+              备注需求</label>
+            <textarea rows="3" placeholder="如有特定服装或造型需求请在此注明..."
+              class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage resize-none"></textarea>
           </div>
 
-          <button type="submit" class="w-full py-4 bg-sage text-white text-xs tracking-widest uppercase font-medium hover:bg-sage-dark transition-colors">
+          <button type="submit"
+            class="w-full py-4 bg-sage text-white text-xs tracking-widest uppercase font-medium hover:bg-sage-dark transition-colors">
             Confirm Booking Request
           </button>
         </form>
@@ -598,7 +675,8 @@
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-charcoal text-white px-6 py-4 border-l-4 border-sage text-xs tracking-wider uppercase flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+  <div id="toast"
+    class="fixed bottom-6 right-6 z-50 bg-charcoal text-white px-6 py-4 border-l-4 border-sage text-xs tracking-wider uppercase flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
     <span class="text-sage text-base">✓</span>
     <span id="toast-message">Booking request submitted successfully!</span>
   </div>
@@ -683,4 +761,5 @@
     });
   </script>
 </body>
+
 </html>
