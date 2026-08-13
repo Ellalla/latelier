@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L'atelier — High-Fashion & Bridal Couture Makeup</title>
-  <meta name="description" content="L'atelier 由三位不同擅长领域的独立化妆师联合创立，专注于高端定制妆造与骨相美学，以克制与精确，还原原生之美。">
+  <title data-i18n="pageTitle">Reverie Studio — High-Fashion &amp; Bridal Couture Makeup</title>
+  <meta name="description" content="Reverie Studio is co-founded by three independent makeup artists, specializing in high-fashion couture and facial bone structure aesthetics. Enhancing your raw beauty with subtle precision.">
 
   <!-- Google Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -127,22 +127,54 @@
       <a href="#home" class="group flex items-center gap-2">
         <span
           class="font-serif text-2xl md:text-3xl font-light tracking-wide text-charcoal group-hover:text-sage transition-colors duration-300">
-          L'atelier <span class="italic font-normal text-sage"></span>
+          Reverie <span class="italic font-normal text-sage">Studio</span>
         </span>
       </a>
 
       <!-- Desktop Nav Links -->
       <nav
         class="hidden md:flex items-center space-x-10 text-xs tracking-widest uppercase font-medium text-charcoal/80">
-        <a href="#home" class="link-underline hover:text-charcoal transition-colors">Home</a>
-        <a href="#philosophy" class="link-underline hover:text-charcoal transition-colors">Philosophy</a>
-        <a href="#artists" class="link-underline hover:text-charcoal transition-colors">Artists</a>
-        <a href="#services" class="link-underline hover:text-charcoal transition-colors">Services</a>
+        <a href="#home" data-i18n="navHome" class="link-underline hover:text-charcoal transition-colors">Home</a>
+        <a href="#philosophy" data-i18n="navPhilosophy" class="link-underline hover:text-charcoal transition-colors">Philosophy</a>
+        <a href="#artists" data-i18n="navArtists" class="link-underline hover:text-charcoal transition-colors">Artists</a>
+        <a href="#services" data-i18n="navServices" class="link-underline hover:text-charcoal transition-colors">Services</a>
       </nav>
 
-      <!-- Right Action Button (Desktop) -->
-      <div class="hidden md:flex items-center gap-6">
-        <button onclick="openBookingModal()"
+      <!-- Right Action Controls (Desktop) -->
+      <div class="hidden md:flex items-center gap-5">
+        
+        <!-- Language Switcher Dropdown -->
+        <div class="relative inline-block text-left" id="lang-selector">
+          <button id="lang-btn" onclick="toggleLangDropdown(event)"
+            class="flex items-center gap-1.5 px-3 py-2 text-xs tracking-widest uppercase font-medium text-charcoal/80 hover:text-sage transition-colors border border-subtleBorder bg-offwhite/50">
+            <span id="current-lang-text">EN</span>
+            <svg class="w-3 h-3 transition-transform duration-200" id="lang-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          
+          <div id="lang-dropdown"
+            class="hidden absolute right-0 mt-2 w-32 bg-white border border-subtleBorder shadow-xl py-1 z-50">
+            <button onclick="setLanguage('en')"
+              class="w-full text-left px-4 py-2 text-xs tracking-wider hover:bg-sage-soft hover:text-sage transition-colors font-medium flex items-center justify-between">
+              <span>EN</span>
+              <span class="text-[10px] text-charcoal/40">English</span>
+            </button>
+            <button onclick="setLanguage('zh')"
+              class="w-full text-left px-4 py-2 text-xs tracking-wider hover:bg-sage-soft hover:text-sage transition-colors font-medium flex items-center justify-between">
+              <span>中文</span>
+              <span class="text-[10px] text-charcoal/40">Simplified</span>
+            </button>
+            <button onclick="setLanguage('ko')"
+              class="w-full text-left px-4 py-2 text-xs tracking-wider hover:bg-sage-soft hover:text-sage transition-colors font-medium flex items-center justify-between">
+              <span>한국어</span>
+              <span class="text-[10px] text-charcoal/40">Korean</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Book Now CTA Button -->
+        <button onclick="openBookingModal()" data-i18n="navBook"
           class="px-6 py-2.5 text-xs tracking-widest uppercase font-medium border border-sage text-sage hover:bg-sage hover:text-white transition-all duration-300 rounded-none">
           Book Now
         </button>
@@ -161,24 +193,31 @@
 
   <!-- Mobile Fullscreen Menu -->
   <div id="mobile-menu"
-    class="fixed inset-0 bg-white z-30 flex flex-col justify-between px-8 py-24 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+    class="fixed inset-0 bg-white z-30 flex flex-col justify-between px-8 py-24 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden overflow-y-auto">
     <div class="flex flex-col space-y-8 text-center pt-8">
-      <a href="#home" onclick="closeMobileMenu()"
+      <a href="#home" onclick="closeMobileMenu()" data-i18n="navHome"
         class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Home</a>
-      <a href="#philosophy" onclick="closeMobileMenu()"
+      <a href="#philosophy" onclick="closeMobileMenu()" data-i18n="navPhilosophy"
         class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Philosophy</a>
-      <a href="#artists" onclick="closeMobileMenu()"
+      <a href="#artists" onclick="closeMobileMenu()" data-i18n="navArtists"
         class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Artists</a>
-      <a href="#services" onclick="closeMobileMenu()"
+      <a href="#services" onclick="closeMobileMenu()" data-i18n="navServices"
         class="font-serif text-3xl text-charcoal hover:text-sage transition-colors">Services</a>
     </div>
 
+    <!-- Mobile Language Controls -->
+    <div class="flex items-center justify-center space-x-4 my-6">
+      <button onclick="setLanguage('en'); closeMobileMenu();" class="px-4 py-1.5 border border-subtleBorder text-xs tracking-widest uppercase hover:bg-sage hover:text-white transition-colors">EN</button>
+      <button onclick="setLanguage('zh'); closeMobileMenu();" class="px-4 py-1.5 border border-subtleBorder text-xs tracking-widest uppercase hover:bg-sage hover:text-white transition-colors">中文</button>
+      <button onclick="setLanguage('ko'); closeMobileMenu();" class="px-4 py-1.5 border border-subtleBorder text-xs tracking-widest uppercase hover:bg-sage hover:text-white transition-colors">한국어</button>
+    </div>
+
     <div class="flex flex-col items-center space-y-6 pt-6 border-t border-subtleBorder">
-      <button onclick="closeMobileMenu(); openBookingModal();"
+      <button onclick="closeMobileMenu(); openBookingModal();" data-i18n="heroCtaPrimary"
         class="w-full py-4 text-xs tracking-widest uppercase font-medium bg-sage text-white text-center">
         Book Appointment
       </button>
-      <p class="text-xs text-charcoal/50 tracking-wider">TORONTO · BY APPOINTMENT ONLY</p>
+      <p data-i18n="mobileMenuTag" class="text-xs text-charcoal/50 tracking-wider">RICHMOND HILL · BY APPOINTMENT ONLY</p>
     </div>
   </div>
 
@@ -204,33 +243,32 @@
             <div
               class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 bg-sage-soft border border-sage/20 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
-              <span class="text-[11px] tracking-widest uppercase font-medium text-sage">High-Fashion &amp; Bridal
-                Couture</span>
+              <span data-i18n="heroTag" class="text-[11px] tracking-widest uppercase font-medium text-sage">High-Fashion &amp; Bridal Couture</span>
             </div>
 
             <!-- Editorial Headline -->
-            <h1
+            <h1 data-i18n="heroTitle"
               class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-light text-charcoal leading-[1.12] tracking-tight mb-8">
               Enhancing your raw beauty with <span class="italic font-normal text-sage">subtle precision.</span>
             </h1>
 
-            <!-- Subtitle Chinese & Description -->
+            <!-- Subtitle & Description -->
             <div class="space-y-3 mb-10 max-w-xl">
-              <p class="text-xs tracking-widest uppercase font-semibold text-sage/90">
+              <p data-i18n="heroSubtitle" class="text-xs tracking-widest uppercase font-semibold text-sage/90">
                 以克制与精确，还原原生之美
               </p>
-              <p class="text-base text-charcoal/70 font-light leading-relaxed">
-                由三位不同擅长领域的独立化妆师联合创立，专注于高端定制妆造与骨相美学。我们拒绝模板化假面感，旨在用雕刻般的艺术视角，展现专属于你的高定质感。
+              <p data-i18n="heroDesc" class="text-base text-charcoal/70 font-light leading-relaxed">
+                Reverie Studio 由三位不同擅长领域的独立化妆师联合创立，专注于高端定制妆造与骨相美学。我们拒绝模板化假面感，旨在用雕刻般的艺术视角，展现专属于你的高定质感。
               </p>
             </div>
 
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-              <button onclick="openBookingModal()"
+              <button onclick="openBookingModal()" data-i18n="heroCtaPrimary"
                 class="px-8 py-4 bg-sage text-white text-xs tracking-widest uppercase font-medium hover:bg-sage-dark transition-all duration-300 text-center shadow-sm">
                 Book Appointment
               </button>
-              <a href="#artists"
+              <a href="#artists" data-i18n="heroCtaSecondary"
                 class="px-8 py-4 border border-charcoal/20 text-charcoal text-xs tracking-widest uppercase font-medium hover:border-charcoal hover:bg-charcoal hover:text-white transition-all duration-300 text-center">
                 Meet Our Artists
               </a>
@@ -240,15 +278,15 @@
             <div class="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-subtleBorder w-full">
               <div>
                 <span class="block font-serif text-2xl md:text-3xl font-light text-charcoal">3</span>
-                <span class="text-[10px] tracking-widest uppercase text-charcoal/50">Lead Artists</span>
+                <span data-i18n="stat1" class="text-[10px] tracking-widest uppercase text-charcoal/50">Lead Artists</span>
               </div>
               <div>
                 <span class="block font-serif text-2xl md:text-3xl font-light text-charcoal">100%</span>
-                <span class="text-[10px] tracking-widest uppercase text-charcoal/50">Bespoke Couture</span>
+                <span data-i18n="stat2" class="text-[10px] tracking-widest uppercase text-charcoal/50">Bespoke Couture</span>
               </div>
               <div>
                 <span class="block font-serif text-2xl md:text-3xl font-light text-charcoal">1:1</span>
-                <span class="text-[10px] tracking-widest uppercase text-charcoal/50">Private Studio</span>
+                <span data-i18n="stat3" class="text-[10px] tracking-widest uppercase text-charcoal/50">Private Studio</span>
               </div>
             </div>
 
@@ -272,13 +310,11 @@
                 <div
                   class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 border border-subtleBorder flex justify-between items-center">
                   <div>
-                    <span class="block text-[10px] tracking-widest uppercase font-medium text-sage">Editorial No.
-                      01</span>
-                    <span class="font-serif text-sm italic text-charcoal">The Essence of Raw Texture</span>
+                    <span data-i18n="imgCapTag" class="block text-[10px] tracking-widest uppercase font-medium text-sage">Editorial No. 01</span>
+                    <span data-i18n="imgCapTitle" class="font-serif text-sm italic text-charcoal">The Essence of Raw Texture</span>
                   </div>
-                  <span
-                    class="text-[9px] tracking-widest uppercase text-charcoal/40 border-l border-subtleBorder pl-3">2026
-                    Collection</span>
+                  <span data-i18n="imgCapSub"
+                    class="text-[9px] tracking-widest uppercase text-charcoal/40 border-l border-subtleBorder pl-3">2026 Collection</span>
                 </div>
               </div>
 
@@ -302,12 +338,12 @@
 
         <!-- Section Header -->
         <div class="max-w-3xl mx-auto text-center mb-16 md:mb-24">
-          <span class="text-xs tracking-widest uppercase font-medium text-sage mb-3 block">Brand Ethos</span>
-          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal tracking-tight mb-6">
+          <span data-i18n="philoTag" class="text-xs tracking-widest uppercase font-medium text-sage mb-3 block">Brand Ethos</span>
+          <h2 data-i18n="philoTitle" class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal tracking-tight mb-6">
             Three Artists, One Philosophy
           </h2>
           <div class="w-12 h-px bg-sage mx-auto mb-6"></div>
-          <p class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed">
+          <p data-i18n="philoSub" class="text-charcoal/70 text-sm md:text-base font-light leading-relaxed">
             我们坚信，真正的美不需要重塑，而是通过光影微调与细腻手法，将独特的面部特质转化为不可复制的高雅气场。
           </p>
         </div>
@@ -323,10 +359,10 @@
               </div>
               <div class="flex items-center gap-3 mb-4">
                 <span class="font-serif text-lg text-sage italic">01</span>
-                <h3 class="font-serif text-xl text-charcoal font-normal tracking-wide">Raw Texture</h3>
+                <h3 data-i18n="philoCard1Title" class="font-serif text-xl text-charcoal font-normal tracking-wide">Raw Texture</h3>
               </div>
-              <h4 class="text-xs tracking-widest uppercase font-semibold text-sage/80 mb-3">原生皮肤质感</h4>
-              <p class="text-xs text-charcoal/60 leading-relaxed font-light">
+              <h4 data-i18n="philoCard1Sub" class="text-xs tracking-widest uppercase font-semibold text-sage/80 mb-3">原生皮肤质感</h4>
+              <p data-i18n="philoCard1Desc" class="text-xs text-charcoal/60 leading-relaxed font-light">
                 摒弃假面感厚重粉底，通过精细的妆前调理与透光打底层次，呈现如同晨露般的自然通透肤质。
               </p>
             </div>
@@ -346,10 +382,10 @@
               </div>
               <div class="flex items-center gap-3 mb-4">
                 <span class="font-serif text-lg text-sage italic">02</span>
-                <h3 class="font-serif text-xl text-charcoal font-normal tracking-wide">Bespoke Structure</h3>
+                <h3 data-i18n="philoCard2Title" class="font-serif text-xl text-charcoal font-normal tracking-wide">Bespoke Structure</h3>
               </div>
-              <h4 class="text-xs tracking-widest uppercase font-semibold text-sage/80 mb-3">量身定制骨相</h4>
-              <p class="text-xs text-charcoal/60 leading-relaxed font-light">
+              <h4 data-i18n="philoCard2Sub" class="text-xs tracking-widest uppercase font-semibold text-sage/80 mb-3">量身定制骨相</h4>
+              <p data-i18n="philoCard2Desc" class="text-xs text-charcoal/60 leading-relaxed font-light">
                 基于个人三庭五眼与独特骨骼走势，以微光影与精准轮廓重塑自然天生的高级立体面部线条。
               </p>
             </div>
@@ -368,10 +404,10 @@
               </div>
               <div class="flex items-center gap-3 mb-4">
                 <span class="font-serif text-lg text-sage italic">03</span>
-                <h3 class="font-serif text-xl text-charcoal font-normal tracking-wide">Timeless Aesthetic</h3>
+                <h3 data-i18n="philoCard3Title" class="font-serif text-xl text-charcoal font-normal tracking-wide">Timeless Aesthetic</h3>
               </div>
-              <h4 class="text-xs tracking-widest uppercase font-semibold text-sage/80 mb-3">耐看的经典审美</h4>
-              <p class="text-xs text-charcoal/60 leading-relaxed font-light">
+              <h4 data-i18n="philoCard3Sub" class="text-xs tracking-widest uppercase font-semibold text-sage/80 mb-3">耐看的经典审美</h4>
+              <p data-i18n="philoCard3Desc" class="text-xs text-charcoal/60 leading-relaxed font-light">
                 拒绝快餐式流行网感妆容，秉持沉稳耐看的高级画报质感，记录每一个重要时刻的经典神韵。
               </p>
             </div>
@@ -392,49 +428,55 @@
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-subtleBorder pb-8">
           <div>
-            <span class="text-xs tracking-widest uppercase font-medium text-sage mb-2 block">Founding Partners</span>
-            <h2 class="font-serif text-3xl sm:text-4xl font-light text-charcoal">The Three Masters</h2>
+            <span data-i18n="artistTag" class="text-xs tracking-widest uppercase font-medium text-sage mb-2 block">Founding Partners</span>
+            <h2 data-i18n="artistTitle" class="font-serif text-3xl sm:text-4xl font-light text-charcoal">The Three Masters</h2>
           </div>
-          <p class="text-xs text-charcoal/60 max-w-md mt-4 md:mt-0 font-light">
+          <p data-i18n="artistSub" class="text-xs text-charcoal/60 max-w-md mt-4 md:mt-0 font-light">
             三位独立化妆师分别在秀场高定、新娘新奢妆造及骨相美学设计领域深耕多年，为你提供私人化一对一服务。
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Artist 1 -->
-          <div class="group cursor-pointer">
-            <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container">
+          <div onclick="openBookingModal('Elena Vance — High Couture Lead')" class="group cursor-pointer bg-offwhite/50 border border-subtleBorder p-6 hover-lift transition-all">
+            <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container relative">
               <img src="assets/hero.jpg" alt="Elena Vance"
                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+              <div class="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span data-i18n="artist1Btn" class="text-[10px] tracking-widest uppercase text-white bg-sage px-4 py-2 border border-white/20">Book With Elena</span>
+              </div>
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">High Couture
-              Lead</span>
+            <span data-i18n="artist1Role" class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">High Couture Lead</span>
             <h3 class="font-serif text-2xl text-charcoal group-hover:text-sage transition-colors">Elena Vance</h3>
-            <p class="text-xs text-charcoal/60 font-light mt-2">擅长时装周大片妆造与光影聚光灯特写</p>
+            <p data-i18n="artist1Desc" class="text-xs text-charcoal/60 font-light mt-2">擅长时装周大片妆造与光影聚光灯特写，塑造高定冷冽美学。</p>
           </div>
 
           <!-- Artist 2 -->
-          <div class="group cursor-pointer">
-            <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container">
+          <div onclick="openBookingModal('Mia Chen — Bridal &amp; Red Carpet')" class="group cursor-pointer bg-offwhite/50 border border-subtleBorder p-6 hover-lift transition-all">
+            <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container relative">
               <img src="assets/timeless-aesthetic.jpg" alt="Mia Chen"
                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+              <div class="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span data-i18n="artist2Btn" class="text-[10px] tracking-widest uppercase text-white bg-sage px-4 py-2 border border-white/20">Book With Mia</span>
+              </div>
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bridal &amp; Red
-              Carpet</span>
+            <span data-i18n="artist2Role" class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bridal &amp; Red Carpet</span>
             <h3 class="font-serif text-2xl text-charcoal group-hover:text-sage transition-colors">Mia Chen</h3>
-            <p class="text-xs text-charcoal/60 font-light mt-2">专注高端私订新娘妆造与红毯仪式气场</p>
+            <p data-i18n="artist2Desc" class="text-xs text-charcoal/60 font-light mt-2">专注高端私订新娘妆造与红毯仪式气场，极致典雅华贵。</p>
           </div>
 
           <!-- Artist 3 -->
-          <div class="group cursor-pointer">
-            <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container">
+          <div onclick="openBookingModal('Sora Kim — Bone Structure Specialist')" class="group cursor-pointer bg-offwhite/50 border border-subtleBorder p-6 hover-lift transition-all">
+            <div class="aspect-[3/4] bg-offwhite mb-6 border border-subtleBorder overflow-hidden img-zoom-container relative">
               <img src="assets/facial-structure.jpg" alt="Sora Kim"
                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+              <div class="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span data-i18n="artist3Btn" class="text-[10px] tracking-widest uppercase text-white bg-sage px-4 py-2 border border-white/20">Book With Sora</span>
+              </div>
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bone Structure
-              Specialist</span>
+            <span data-i18n="artist3Role" class="text-[10px] tracking-widest uppercase font-medium text-sage block mb-1">Bone Structure Specialist</span>
             <h3 class="font-serif text-2xl text-charcoal group-hover:text-sage transition-colors">Sora Kim</h3>
-            <p class="text-xs text-charcoal/60 font-light mt-2">精于微骨相雕刻与极简清透自然妆面</p>
+            <p data-i18n="artist3Desc" class="text-xs text-charcoal/60 font-light mt-2">精于微骨相雕刻与极简清透自然妆面，呈现天然立体原生感。</p>
           </div>
         </div>
       </div>
@@ -444,8 +486,8 @@
     <section id="services" class="py-24 bg-offwhite border-t border-subtleBorder">
       <div class="max-w-7xl mx-auto px-6 md:px-12">
         <div class="max-w-xl mb-16">
-          <span class="text-xs tracking-widest uppercase font-medium text-sage mb-2 block">Tailored Offerings</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-light text-charcoal">Custom Couture Services</h2>
+          <span data-i18n="serviceTag" class="text-xs tracking-widest uppercase font-medium text-sage mb-2 block">Tailored Offerings</span>
+          <h2 data-i18n="serviceTitle" class="font-serif text-3xl sm:text-4xl font-light text-charcoal">Custom Couture Services</h2>
         </div>
 
         <div class="divide-y divide-subtleBorder border-y border-subtleBorder">
@@ -455,15 +497,14 @@
             class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
             <div class="md:w-1/3 mb-2 md:mb-0">
               <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Category 01</span>
-              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Bridal Couture
-                Package / 高定新娘妆造</h3>
+              <h3 data-i18n="serv1Title" class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Bridal Couture Package / 高定新娘妆造</h3>
             </div>
-            <p class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
+            <p data-i18n="serv1Desc" class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
               包含试妆沟通、婚礼当日全程跟妆、皮肤预理及定制饰品搭配。
             </p>
             <div class="flex items-center justify-between md:justify-end md:w-1/4 gap-6">
-              <span class="font-serif text-lg text-charcoal">From ¥4,800</span>
-              <button onclick="openBookingModal()"
+              <span data-i18n="serv1Price" class="font-serif text-lg text-charcoal">From ¥4,800</span>
+              <button onclick="openBookingModal()" data-i18n="selectBtn"
                 class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
                 Select
               </button>
@@ -475,15 +516,14 @@
             class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
             <div class="md:w-1/3 mb-2 md:mb-0">
               <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Category 02</span>
-              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Editorial &amp;
-                Runway Look / 时装画报大片</h3>
+              <h3 data-i18n="serv2Title" class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Editorial &amp; Runway Look / 时装画报大片</h3>
             </div>
-            <p class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
+            <p data-i18n="serv2Desc" class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
               专为杂志封面、商业广告、个人形象大片量身研发的高概念妆造。
             </p>
             <div class="flex items-center justify-between md:justify-end md:w-1/4 gap-6">
-              <span class="font-serif text-lg text-charcoal">From ¥2,800</span>
-              <button onclick="openBookingModal()"
+              <span data-i18n="serv2Price" class="font-serif text-lg text-charcoal">From ¥2,800</span>
+              <button onclick="openBookingModal()" data-i18n="selectBtn"
                 class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
                 Select
               </button>
@@ -495,15 +535,14 @@
             class="py-8 flex flex-col md:flex-row md:items-center justify-between group hover:bg-white px-4 transition-colors duration-300">
             <div class="md:w-1/3 mb-2 md:mb-0">
               <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Category 03</span>
-              <h3 class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Personal Bone
-                Structure Design / 私人骨相美学服务</h3>
+              <h3 data-i18n="serv3Title" class="font-serif text-xl text-charcoal group-hover:text-sage transition-colors">Personal Bone Structure Design / 私人骨相美学</h3>
             </div>
-            <p class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
+            <p data-i18n="serv3Desc" class="text-xs text-charcoal/60 font-light md:w-1/3 mb-4 md:mb-0">
               精准分析个人面部骨骼比例，打造日常高端场合轻奢妆容。
             </p>
             <div class="flex items-center justify-between md:justify-end md:w-1/4 gap-6">
-              <span class="font-serif text-lg text-charcoal">From ¥1,600</span>
-              <button onclick="openBookingModal()"
+              <span data-i18n="serv3Price" class="font-serif text-lg text-charcoal">From ¥1,600</span>
+              <button onclick="openBookingModal()" data-i18n="selectBtn"
                 class="text-[10px] tracking-widest uppercase border border-sage text-sage px-4 py-2 hover:bg-sage hover:text-white transition-colors">
                 Select
               </button>
@@ -528,28 +567,28 @@
         <div class="md:col-span-5 flex flex-col justify-between">
           <div>
             <a href="#home" class="font-serif text-3xl font-light tracking-wide text-charcoal block mb-4">
-              L'atelier <span class="italic font-normal text-sage"></span>
+              Reverie <span class="italic font-normal text-sage">Studio</span>
             </a>
-            <p class="text-xs text-charcoal/60 max-w-sm font-light leading-relaxed mb-6">
+            <p data-i18n="footerSlogan" class="text-xs text-charcoal/60 max-w-sm font-light leading-relaxed mb-6">
               Enhancing your raw beauty with subtle precision. 由三位独立化妆师联合创立的高端定制妆造工作室。
             </p>
           </div>
-          <div class="text-[11px] tracking-widest uppercase text-sage font-medium">
-            Toronto · By Appointment Only
+          <div data-i18n="footerLocTag" class="text-[11px] tracking-widest uppercase text-sage font-medium">
+            Richmond Hill, ON · By Appointment Only
           </div>
         </div>
 
         <!-- Middle Col: Address & Hours -->
         <div class="md:col-span-4 space-y-6">
           <div>
-            <h4 class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Studio Location</h4>
-            <p class="text-xs text-charcoal/70 font-light leading-relaxed">
-              123 Yonge Street, Toronto, ON M5B 1E5
+            <h4 data-i18n="footerLocTitle" class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Studio Location</h4>
+            <p data-i18n="footerLocText" class="text-xs text-charcoal/70 font-light leading-relaxed">
+              16th Avenue, Richmond Hill, Ontario, Canada
             </p>
           </div>
           <div>
-            <h4 class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Opening Hours</h4>
-            <p class="text-xs text-charcoal/70 font-light leading-relaxed">
+            <h4 data-i18n="footerHoursTitle" class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Opening Hours</h4>
+            <p data-i18n="footerHoursText" class="text-xs text-charcoal/70 font-light leading-relaxed">
               Monday – Sunday: 10:00 AM – 20:00 PM<br>
               (仅接受提前预约 / Reservation Required)
             </p>
@@ -559,14 +598,14 @@
         <!-- Right Col: Social & Contact -->
         <div class="md:col-span-3 space-y-6">
           <div>
-            <h4 class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Connect With Us</h4>
+            <h4 data-i18n="footerSocialTitle" class="text-[11px] tracking-widest uppercase font-semibold text-charcoal mb-3">Connect With Us</h4>
             <ul class="space-y-2 text-xs text-charcoal/70 font-light">
               <li><a href="https://instagram.com" target="_blank" rel="noopener"
-                  class="hover:text-sage transition-colors">Instagram @latelier</a></li>
+                  class="hover:text-sage transition-colors">Instagram @reverie_studio</a></li>
               <li><a href="https://xiaohongshu.com" target="_blank" rel="noopener"
-                  class="hover:text-sage transition-colors">小红书: L'atelier 化妆工作室</a></li>
-              <li><a href="mailto:contact@latelier.com"
-                  class="hover:text-sage transition-colors">contact@latelier-studio.com</a></li>
+                  class="hover:text-sage transition-colors">小红书: Reverie 化妆工作室</a></li>
+              <li><a href="mailto:contact@reverie-studio.com"
+                  class="hover:text-sage transition-colors">contact@reverie-studio.com</a></li>
             </ul>
           </div>
         </div>
@@ -576,7 +615,7 @@
       <!-- Lower Footer Copyright -->
       <div
         class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] tracking-wider text-charcoal/40 font-light">
-        <p>&copy; 2026 L'atelier. All Rights Reserved.</p>
+        <p data-i18n="footerCopyright">&copy; 2026 Reverie Studio. All Rights Reserved.</p>
         <div class="flex space-x-6 mt-4 sm:mt-0">
           <a href="#" class="hover:text-charcoal transition-colors">Privacy Policy</a>
           <a href="#" class="hover:text-charcoal transition-colors">Terms of Service</a>
@@ -599,8 +638,8 @@
       <div>
         <div class="flex justify-between items-center mb-8 border-b border-subtleBorder pb-4">
           <div>
-            <span class="text-[10px] tracking-widest uppercase text-sage font-medium block">Private Reservation</span>
-            <h3 class="font-serif text-2xl text-charcoal font-light">Book an Appointment</h3>
+            <span data-i18n="bookModalTag" class="text-[10px] tracking-widest uppercase text-sage font-medium block">Private Reservation</span>
+            <h3 data-i18n="bookModalTitle" class="font-serif text-2xl text-charcoal font-light">Book an Appointment</h3>
           </div>
           <button onclick="closeBookingModal()" class="text-charcoal/50 hover:text-charcoal text-2xl font-light">
             &times;
@@ -609,57 +648,51 @@
 
         <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-6">
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Select Preferred
-              Artist</label>
-            <select
+            <label data-i18n="lblArtist" class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Select Preferred Artist</label>
+            <select id="artist-select"
               class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
-              <option>Elena Vance — High Couture Lead</option>
-              <option>Mia Chen — Bridal &amp; Red Carpet</option>
-              <option>Sora Kim — Bone Structure Specialist</option>
-              <option>First Available Lead Artist</option>
+              <option value="Elena Vance — High Couture Lead" data-i18n="bookArtistOpt1">Elena Vance — High Couture Lead</option>
+              <option value="Mia Chen — Bridal &amp; Red Carpet" data-i18n="bookArtistOpt2">Mia Chen — Bridal &amp; Red Carpet</option>
+              <option value="Sora Kim — Bone Structure Specialist" data-i18n="bookArtistOpt3">Sora Kim — Bone Structure Specialist</option>
+              <option value="First Available Lead Artist" data-i18n="bookArtistOpt4">First Available Lead Artist</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Service
-              Type</label>
+            <label data-i18n="lblService" class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Service Type</label>
             <select
               class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
-              <option>Bridal Couture Package (高定新娘妆造)</option>
-              <option>Editorial &amp; Runway Look (时装画报大片)</option>
-              <option>Personal Bone Structure Design (私人骨相美学服务)</option>
+              <option data-i18n="bookServOpt1">Bridal Couture Package (高定新娘妆造)</option>
+              <option data-i18n="bookServOpt2">Editorial &amp; Runway Look (时装画报大片)</option>
+              <option data-i18n="bookServOpt3">Personal Bone Structure Design (私人骨相美学)</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Your Name /
-              姓名</label>
-            <input type="text" required placeholder="e.g. Ms. Lin"
+            <label data-i18n="lblName" class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Your Name</label>
+            <input type="text" required placeholder="e.g. Ms. Lin" data-i18n-placeholder="placeholderName"
               class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Phone / Contact
-              Phone</label>
-            <input type="tel" required placeholder="+86 138 **** ****"
+            <label data-i18n="lblPhone" class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Phone / Contact Number</label>
+            <input type="tel" required placeholder="+86 138 **** ****" data-i18n-placeholder="placeholderPhone"
               class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Preferred
-              Date</label>
+            <label data-i18n="lblDate" class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Preferred Date</label>
             <input type="date" required
               class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage">
           </div>
 
           <div>
-            <label class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Special Notes /
-              备注需求</label>
-            <textarea rows="3" placeholder="如有特定服装或造型需求请在此注明..."
+            <label data-i18n="lblNotes" class="block text-[11px] tracking-widest uppercase font-medium text-charcoal mb-2">Special Notes</label>
+            <textarea rows="3" placeholder="如有特定服装或造型需求请在此注明..." data-i18n-placeholder="placeholderNotes"
               class="w-full bg-offwhite border border-subtleBorder p-3 text-xs text-charcoal focus:outline-none focus:border-sage resize-none"></textarea>
           </div>
 
-          <button type="submit"
+          <button type="submit" data-i18n="bookSubmit"
             class="w-full py-4 bg-sage text-white text-xs tracking-widest uppercase font-medium hover:bg-sage-dark transition-colors">
             Confirm Booking Request
           </button>
@@ -667,8 +700,8 @@
       </div>
 
       <div class="pt-6 border-t border-subtleBorder mt-8 text-center">
-        <p class="text-[10px] text-charcoal/50 tracking-wider">
-          提交后，我们将在 2 小时内与您电话/微信确认档期。
+        <p data-i18n="bookNotice" class="text-[10px] text-charcoal/50 tracking-wider">
+          Upon submission, our team will confirm your appointment within 2 hours.
         </p>
       </div>
     </div>
@@ -681,8 +714,333 @@
     <span id="toast-message">Booking request submitted successfully!</span>
   </div>
 
-  <!-- ==================== VANILLA JS LOGIC ==================== -->
+  <!-- ==================== VANILLA JS & i18n LOGIC ==================== -->
   <script>
+    // i18n Dictionary
+    const i18n = {
+      en: {
+        pageTitle: "Reverie Studio — High-Fashion & Bridal Couture Makeup",
+        navHome: "Home",
+        navPhilosophy: "Philosophy",
+        navArtists: "Artists",
+        navServices: "Services",
+        navBook: "Book Now",
+        mobileMenuTag: "RICHMOND HILL · BY APPOINTMENT ONLY",
+        heroTag: "High-Fashion & Bridal Couture",
+        heroTitle: 'Enhancing your raw beauty with <span class="italic font-normal text-sage">subtle precision.</span>',
+        heroSubtitle: "Redefining beauty through restraint and precision",
+        heroDesc: "Co-founded by three independent artists specializing in distinct domains, dedicated to bespoke couture beauty and facial bone structure aesthetics. We reject heavy mask-like foundations, creating an artistic perspective tailored exclusively to you.",
+        heroCtaPrimary: "Book Appointment",
+        heroCtaSecondary: "Meet Our Artists",
+        stat1: "Lead Artists",
+        stat2: "Bespoke Couture",
+        stat3: "Private Studio",
+        imgCapTag: "Editorial No. 01",
+        imgCapTitle: "The Essence of Raw Texture",
+        imgCapSub: "2026 Collection",
+        philoTag: "Brand Ethos",
+        philoTitle: "Three Artists, One Philosophy",
+        philoSub: "True beauty requires no reshaping; through delicate light, shadow, and refined techniques, we transform your unique facial features into an irreplaceable aura of elegance.",
+        philoCard1Title: "Raw Texture",
+        philoCard1Sub: "Natural Glow & Skin Texture",
+        philoCard1Desc: "Moving away from heavy mask-like foundations, using refined skin prep and translucent layering to reveal a dewy, natural raw skin glow.",
+        philoCard2Title: "Bespoke Structure",
+        philoCard2Sub: "Sculpted Bone Contour",
+        philoCard2Desc: "Tailored to individual facial proportions and bone structure, sculpting natural dimensional features with subtle light and shadow.",
+        philoCard3Title: "Timeless Aesthetic",
+        philoCard3Sub: "Enduring Editorial Glamour",
+        philoCard3Desc: "Rejecting transient internet makeup trends, upholding enduring editorial elegance to capture the classic essence of your key moments.",
+        artistTag: "Founding Partners",
+        artistTitle: "The Three Masters",
+        artistSub: "Three independent artists with deep expertise in runway couture, luxury bridal, and facial bone structure design, offering private one-on-one services.",
+        artist1Btn: "Book With Elena",
+        artist1Role: "High Couture Lead",
+        artist1Desc: "Specializes in fashion week editorial looks and spotlight close-ups, crafting cold high-fashion aesthetics.",
+        artist2Btn: "Book With Mia",
+        artist2Role: "Bridal & Red Carpet",
+        artist2Desc: "Focuses on bespoke luxury bridal looks and red carpet ceremony presence, embodying timeless elegance.",
+        artist3Btn: "Book With Sora",
+        artist3Role: "Bone Structure Specialist",
+        artist3Desc: "Expert in subtle bone sculpting and minimal translucent natural makeup, revealing innate dimensional beauty.",
+        serviceTag: "Tailored Offerings",
+        serviceTitle: "Custom Couture Services",
+        serv1Title: "Bridal Couture Package",
+        serv1Desc: "Includes bridal trial, full wedding day accompaniment, skin prep, and custom accessory styling.",
+        serv1Price: "From ¥4,800",
+        serv2Title: "Editorial & Runway Look",
+        serv2Desc: "Tailored high-concept makeup for magazine covers, commercial ads, and personal portraiture.",
+        serv2Price: "From ¥2,800",
+        serv3Title: "Personal Bone Structure Design",
+        serv3Desc: "Precise facial proportion analysis to craft everyday understated luxury looks.",
+        serv3Price: "From ¥1,600",
+        selectBtn: "Select",
+        footerSlogan: "Enhancing your raw beauty with subtle precision. Co-founded by three independent makeup artists.",
+        footerLocTag: "Richmond Hill, ON · By Appointment Only",
+        footerLocTitle: "Studio Location",
+        footerLocText: "16th Avenue, Richmond Hill, Ontario, Canada",
+        footerHoursTitle: "Opening Hours",
+        footerHoursText: "Monday – Sunday: 10:00 AM – 20:00 PM (Reservation Required)",
+        footerSocialTitle: "Connect With Us",
+        footerCopyright: "© 2026 Reverie Studio. All Rights Reserved.",
+        bookModalTag: "Private Reservation",
+        bookModalTitle: "Book an Appointment",
+        lblArtist: "Select Preferred Artist",
+        bookArtistOpt1: "Elena Vance — High Couture Lead",
+        bookArtistOpt2: "Mia Chen — Bridal & Red Carpet",
+        bookArtistOpt3: "Sora Kim — Bone Structure Specialist",
+        bookArtistOpt4: "First Available Lead Artist",
+        lblService: "Service Type",
+        bookServOpt1: "Bridal Couture Package (高定新娘妆造)",
+        bookServOpt2: "Editorial & Runway Look (时装画报大片)",
+        bookServOpt3: "Personal Bone Structure Design (私人骨相美学)",
+        lblName: "Your Name",
+        lblPhone: "Phone / Contact Number",
+        lblDate: "Preferred Date",
+        lblNotes: "Special Notes",
+        placeholderName: "e.g. Ms. Lin",
+        placeholderPhone: "+86 138 **** ****",
+        placeholderNotes: "Please specify any specific outfit or styling requests...",
+        bookSubmit: "Confirm Booking Request",
+        bookNotice: "Upon submission, our team will confirm your appointment within 2 hours.",
+        toastSuccess: "Booking request submitted successfully! We will contact you soon."
+      },
+      zh: {
+        pageTitle: "Reverie Studio — 高定时装与新娘妆造工作室",
+        navHome: "首页",
+        navPhilosophy: "品牌理念",
+        navArtists: "造型师",
+        navServices: "高定服务",
+        navBook: "立即预约",
+        mobileMenuTag: "列治文山 · 仅接受提前预约",
+        heroTag: "高定时装与新娘美学",
+        heroTitle: '以克制与精确，<span class="italic font-normal text-sage">还原原生之美。</span>',
+        heroSubtitle: "Enhancing your raw beauty with subtle precision.",
+        heroDesc: "Reverie Studio 由三位不同擅长领域的独立化妆师联合创立，专注于高端定制妆造与骨相美学。我们拒绝模板化假面感，旨在用雕刻般的艺术视角，展现专属于你的高定质感。",
+        heroCtaPrimary: "预约妆造档期",
+        heroCtaSecondary: "了解主创造型师",
+        stat1: "首席造型师",
+        stat2: "高定专属设计",
+        stat3: "私密工作室",
+        imgCapTag: "秀场大片 No. 01",
+        imgCapTitle: "原生肤质美学特写",
+        imgCapSub: "2026 灵感系列",
+        philoTag: "品牌理念",
+        philoTitle: "三位大师，一种坚守",
+        philoSub: "我们坚信，真正的美不需要重塑，而是通过光影微调与细腻手法，将独特的面部特质转化为不可复制的高雅气场。",
+        philoCard1Title: "Raw Texture",
+        philoCard1Sub: "原生皮肤质感",
+        philoCard1Desc: "摒弃假面感厚重粉底，通过精细的妆前调理与透光打底层次，呈现如同晨露般的自然通透肤质。",
+        philoCard2Title: "Bespoke Structure",
+        philoCard2Sub: "量身定制骨相",
+        philoCard2Desc: "基于个人三庭五眼与独特骨骼走势，以微光影与精准轮廓重塑自然天生的高级立体面部线条。",
+        philoCard3Title: "Timeless Aesthetic",
+        philoCard3Sub: "耐看的经典审美",
+        philoCard3Desc: "拒绝快餐式流行网感妆容，秉持沉稳耐看的高级画报质感，记录每一个重要时刻的经典神韵。",
+        artistTag: "联合创始人",
+        artistTitle: "三位主创造型师",
+        artistSub: "三位独立化妆师分别在秀场高定、新娘新奢妆造及骨相美学设计领域深耕多年，为你提供私人化一对一服务。",
+        artist1Btn: "预约 Elena 造型",
+        artist1Role: "秀场高定主理人",
+        artist1Desc: "擅长时装周大片妆造与光影聚光灯特写，塑造高定冷冽美学。",
+        artist2Btn: "预约 Mia 造型",
+        artist2Role: "新娘与红毯主理人",
+        artist2Desc: "专注高端私订新娘妆造与红毯仪式气场，极致典雅华贵。",
+        artist3Btn: "预约 Sora 造型",
+        artist3Role: "骨相雕刻专家",
+        artist3Desc: "精于微骨相雕刻与极简清透自然妆面，呈现天然立体原生感。",
+        serviceTag: "定制服务菜单",
+        serviceTitle: "高定美学服务项",
+        serv1Title: "高定新娘妆造 Package",
+        serv1Desc: "包含试妆沟通、婚礼当日全程跟妆、皮肤预理及定制饰品搭配。",
+        serv1Price: "¥4,800 起",
+        serv2Title: "时装画报大片 Look",
+        serv2Desc: "专为杂志封面、商业广告、个人形象大片量身研发的高概念妆造。",
+        serv2Price: "¥2,800 起",
+        serv3Title: "私人骨相美学设计",
+        serv3Desc: "精准分析个人面部骨骼比例，打造日常高端场合轻奢妆容。",
+        serv3Price: "¥1,600 起",
+        selectBtn: "选择服务",
+        footerSlogan: "以克制与精确，还原原生之美。由三位独立化妆师联合创立的高端定制妆造工作室。",
+        footerLocTag: "列治文山 · 仅接受提前预约",
+        footerLocTitle: "工作室地址",
+        footerLocText: "加拿大安大略省列治文山 16th Avenue",
+        footerHoursTitle: "营业时间",
+        footerHoursText: "周一至周日 10:00 – 20:00 (仅接受提前预约)",
+        footerSocialTitle: "关注与联系",
+        footerCopyright: "© 2026 Reverie Studio. 保留所有权利。",
+        bookModalTag: "私人预约",
+        bookModalTitle: "预约妆造服务",
+        lblArtist: "选择心仪造型师",
+        bookArtistOpt1: "Elena Vance — 秀场高定主理人",
+        bookArtistOpt2: "Mia Chen — 新娘与红毯主理人",
+        bookArtistOpt3: "Sora Kim — 骨相雕刻专家",
+        bookArtistOpt4: "首位可预约主创造型师",
+        lblService: "预约服务项目",
+        bookServOpt1: "高定新娘妆造 Package",
+        bookServOpt2: "时装画报大片 Look",
+        bookServOpt3: "私人骨相美学设计 Service",
+        lblName: "您的姓名",
+        lblPhone: "联系电话",
+        lblDate: "期望预约日期",
+        lblNotes: "备注需求",
+        placeholderName: "例如：林女士",
+        placeholderPhone: "+86 138 **** ****",
+        placeholderNotes: "如有特定服装或造型需求请在此注明...",
+        bookSubmit: "确认提交预约申请",
+        bookNotice: "提交后，我们将在 2 小时内与您电话/微信确认档期。",
+        toastSuccess: "预约请求已成功提交，工作人员将尽快联系您！"
+      },
+      ko: {
+        pageTitle: "Reverie Studio — 하이패션 & 브라이달 쿠튀르 메이크업",
+        navHome: "홈",
+        navPhilosophy: "브랜드 철학",
+        navArtists: "아티스트",
+        navServices: "서비스",
+        navBook: "예약하기",
+        mobileMenuTag: "리치먼드 힐 · 사전 예약제",
+        heroTag: "하이패션 & 브라이달 쿠튀르",
+        heroTitle: '절제와 정교함으로 <span class="italic font-normal text-sage">본연의 아름다움을 완성합니다.</span>',
+        heroSubtitle: "Enhancing your raw beauty with subtle precision.",
+        heroDesc: "Reverie Studio는 서로 다른 전문 분야를 지닌 3명의 독립 메이크업 아티스트가 설립한 프라이빗 아틀리에입니다. 인위적인 커버를 지양하고 당신만의 독창적 미학을 완성합니다.",
+        heroCtaPrimary: "예약 신청하기",
+        heroCtaSecondary: "아티스트 소개",
+        stat1: "리드 아티스트",
+        stat2: "맞춤 쿠튀르",
+        stat3: "프라이빗 스튜디오",
+        imgCapTag: "에디토리얼 No. 01",
+        imgCapTitle: "원시적 피부 텍스처",
+        imgCapSub: "2026 컬렉션",
+        philoTag: "브랜드 철학",
+        philoTitle: "세 명의 아티스트, 하나의 철학",
+        philoSub: "진정한 아름다움은 인위적인 재창조가 아닙니다. 섬세한 빛과 그림자를 통해 당신만의 독보적인 분위기를 연출합니다.",
+        philoCard1Title: "Raw Texture",
+        philoCard1Sub: "내추럴 피부 텍스처",
+        philoCard1Desc: "무거운 파운데이션을 배제하고, 투명한 스킨베이스 레이어링으로 아침 이슬 같은 맑은 피부표현을 선보입니다.",
+        philoCard2Title: "Bespoke Structure",
+        philoCard2Sub: "1:1 골격 윤곽 디테일",
+        philoCard2Desc: "개개인의 이목구비 비율과 뼈대에 맞춰 음영 필터링 기술로 입체적인 윤곽을 완성합니다.",
+        philoCard3Title: "Timeless Aesthetic",
+        philoCard3Sub: "클래식 하이엔드 미학",
+        philoCard3Desc: "일시적인 트렌드를 넘어, 시간이 지나도 변함없는 클래식 화보 감성을 선사합니다.",
+        artistTag: "파운딩 파트너",
+        artistTitle: "3인의 마스터 아티스트",
+        artistSub: "런웨이 쿠튀르, 웨딩 메이크업, 골격 윤곽 연출 전문 아티스트의 1:1 프라이빗 컨설팅 서비스.",
+        artist1Btn: "Elena 아티스트 예약",
+        artist1Role: "하이쿠튀르 리드",
+        artist1Desc: "패션위크 화보 및 메인 특약 메이크업 연출 전문.",
+        artist2Btn: "Mia 아티스트 예약",
+        artist2Role: "브라이달 & 레드카펫",
+        artist2Desc: "세련되고 우아한 프라이빗 웨딩 및 레드카펫 시그니처 룩.",
+        artist3Btn: "Sora 아티스트 예약",
+        artist3Role: "골격 윤곽 아티스트",
+        artist3Desc: "섬세한 음영 윤곽 연출과 맑고 투명한 피부표현 전문가.",
+        serviceTag: "맞춤 서비스 메뉴",
+        serviceTitle: "커스텀 쿠튀르 서비스",
+        serv1Title: "브라이달 쿠튀르 패키지",
+        serv1Desc: "사전 테스트, 본식 당일 밀착 케어, 스킨 연출 및 맞춤 스타일링 포함.",
+        serv1Price: "₩900,000부터",
+        serv2Title: "에디토리얼 & 런웨이 룩",
+        serv2Desc: "화보 촬영, 광고, 인물 프로필 맞춤형 하이컨셉 메이크업.",
+        serv2Price: "₩500,000부터",
+        serv3Title: "프라이빗 골격 미학 서비스",
+        serv3Desc: "페이스 골격 비율 분석 및 데일리 럭셔리 메이크업 룩 연출.",
+        serv3Price: "₩300,000부터",
+        selectBtn: "선택하기",
+        footerSlogan: "절제와 정교함으로 본연의 아름다움을 완성합니다. Reverie Studio.",
+        footerLocTag: "온타리오주 리치먼드 힐 · 사전 예약제",
+        footerLocTitle: "스튜디오 위치",
+        footerLocText: "16th Avenue, Richmond Hill, Ontario, Canada",
+        footerHoursTitle: "운영 시간",
+        footerHoursText: "월요일 – 일요일: 10:00 AM – 20:00 PM (사전 예약 필수)",
+        footerSocialTitle: "SNS & 문의",
+        footerCopyright: "© 2026 Reverie Studio. All Rights Reserved.",
+        bookModalTag: "프라이빗 예약",
+        bookModalTitle: "메이크업 서비스 예약",
+        lblArtist: "담당 아티스트 선택",
+        bookArtistOpt1: "Elena Vance — 하이쿠튀르 리드",
+        bookArtistOpt2: "Mia Chen — 브라이달 & 레드카펫",
+        bookArtistOpt3: "Sora Kim — 골격 윤곽 아티스트",
+        bookArtistOpt4: "우선 예약 가능한 아티스트",
+        lblService: "서비스 항목",
+        bookServOpt1: "브라이달 쿠튀르 패키지",
+        bookServOpt2: "에디토리얼 & 런웨이 룩",
+        bookServOpt3: "프라이빗 골격 미학 서비스",
+        lblName: "성함",
+        lblPhone: "연락처",
+        lblDate: "희망 예약 날짜",
+        lblNotes: "요청사항",
+        placeholderName: "예: 김지은",
+        placeholderPhone: "+82 10 **** ****",
+        placeholderNotes: "특정 의상이나 메이크업 컨셉 요청사항을 기재해주세요...",
+        bookSubmit: "예약 신청 완료",
+        bookNotice: "신청 완료 후 2시간 이내 담당자가 연락드립니다.",
+        toastSuccess: "예약 요청이 성공적으로 접수되었습니다!"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('reverie_lang', lang);
+
+      // Update current lang UI text
+      const currentLangText = document.getElementById('current-lang-text');
+      if (currentLangText) {
+        currentLangText.textContent = lang.toUpperCase();
+      }
+
+      // Update all elements with data-i18n attribute
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+
+      // Update placeholders
+      const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+      placeholderElements.forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[lang][key]) {
+          el.placeholder = i18n[lang][key];
+        }
+      });
+
+      // Close language dropdown if open
+      const dropdown = document.getElementById('lang-dropdown');
+      const arrow = document.getElementById('lang-arrow');
+      if (dropdown) dropdown.classList.add('hidden');
+      if (arrow) arrow.classList.remove('rotate-180');
+    }
+
+    function toggleLangDropdown(e) {
+      if (e) e.stopPropagation();
+      const dropdown = document.getElementById('lang-dropdown');
+      const arrow = document.getElementById('lang-arrow');
+      dropdown.classList.toggle('hidden');
+      arrow.classList.toggle('rotate-180');
+    }
+
+    // Close dropdown on clicking outside
+    document.addEventListener('click', (e) => {
+      const selector = document.getElementById('lang-selector');
+      const dropdown = document.getElementById('lang-dropdown');
+      const arrow = document.getElementById('lang-arrow');
+      if (selector && !selector.contains(e.target) && dropdown && !dropdown.classList.contains('hidden')) {
+        dropdown.classList.add('hidden');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }
+    });
+
+    // Initialize saved language on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('reverie_lang') || 'en';
+      setLanguage(savedLang);
+    });
+
     // Mobile Menu Toggle Logic
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -715,7 +1073,13 @@
     const bookingModal = document.getElementById('booking-modal');
     const bookingDrawer = document.getElementById('booking-drawer');
 
-    function openBookingModal() {
+    function openBookingModal(artistName) {
+      if (artistName) {
+        const artistSelect = document.getElementById('artist-select');
+        if (artistSelect) {
+          artistSelect.value = artistName;
+        }
+      }
       bookingModal.classList.remove('invisible', 'opacity-0', 'pointer-events-none');
       bookingDrawer.classList.remove('translate-x-full');
       document.body.style.overflow = 'hidden';
@@ -733,7 +1097,8 @@
     function handleBookingSubmit(e) {
       e.preventDefault();
       closeBookingModal();
-      showToast('预约请求已成功提交，工作人员将尽快联系您！');
+      const msg = i18n[currentLang] ? i18n[currentLang].toastSuccess : 'Booking request submitted successfully!';
+      showToast(msg);
     }
 
     // Toast Notification Function
